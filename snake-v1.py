@@ -4,7 +4,7 @@ Programme Snake
 
 """
 
-from tkinter import * # Importation de la bibliothèque  Tkinter 
+from tkinter import * # Importation de la bibliothèque  Tkinter      
 from random import *
 
 def right(event):
