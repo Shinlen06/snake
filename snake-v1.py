@@ -31,11 +31,9 @@ def computeNextFrame(numFrame,coordonnee, objet):
     # Affiche le numérod de la frame
     #print(numFrame)
     numFrame = numFrame + 1
-    
-    # Effacer le canevas
+   
     can.delete('all')
     
-    # Propagation du déplacement des noeuds
     for n in range (len(coordonnee)-1,0,-1):
         coordonnee[n][0] = coordonnee[n-1][0]
         coordonnee[n][1] = coordonnee[n-1][1]
@@ -102,11 +100,7 @@ def computeNextFrame(numFrame,coordonnee, objet):
 
 
 if __name__ == "__main__":
-    # On crée un canevas dans l'environnement Tkinter d'une taille de 500x500
-    # Ce constructeur prend comme premier paramètre l'objet dans lequel il sera
-    # intégré (ici l'environnement Tkinter)
-    # Les trois autres paramètres permettent de spécifier la taille et la couleur
-    # de fond du canevas
+  
     can = Canvas(tk, width=500, height=500, bg='black')
     
     # On affiche le canevas
