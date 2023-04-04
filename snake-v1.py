@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Programme Snake
+Programme Snake 
 
 """
 from tkinter import * # Importation de la bibliothèque  Tkinter 
@@ -28,6 +28,7 @@ pomme2 = Image.open("Pomme2.png")
 pomme2 = ImageTk.PhotoImage(pomme2)
 pomme3 = Image.open("Pomme3.png")
 pomme3 = ImageTk.PhotoImage(pomme3)
+#initialisation du score et de la vitesse
 score=0
 vitesse=100
 def right(event):
@@ -56,6 +57,7 @@ def computeNextFrame(numFrame,coordonnee, objet, objet_2,objet_3):
     global direction
     global score
     global vitesse
+    #création de la mort pour pomme 3
     mort = False
     # Affiche le numérod de la frame
     #print(numFrame)
@@ -111,7 +113,7 @@ def computeNextFrame(numFrame,coordonnee, objet, objet_2,objet_3):
             # Déplacement de la pomme
             objet[0][0] = randint(1,24)* 20
             objet[0][1] = randint(1,24)* 20
-            # Ajout d'un noeud au serpent (à la même place que le dernier noeud)
+            # Ajout d'un noeud au serpent (à la même place que le dernier noeud) et modification score
             coordonnee.append([-20, -20]) # Caché pour l'instant
             score=score+5
     
@@ -120,7 +122,7 @@ def computeNextFrame(numFrame,coordonnee, objet, objet_2,objet_3):
             # Déplacement de la pomme
             objet_2[0][0] = randint(1,24)* 20
             objet_2[0][1] = randint(1,24)* 20
-            # Ajout d'un noeud au serpent (à la même place que le dernier noeud)
+            # Ajout d'un noeud au serpent (à la même place que le dernier noeud) et modification vitesse/score
             coordonnee.append([-20, -20])
             score=score+15
             vitesse = vitesse-7
@@ -151,7 +153,7 @@ def computeNextFrame(numFrame,coordonnee, objet, objet_2,objet_3):
     
     else:
         # La partie n'est pas finie
-        # Calcule une nouvelle frame dans 100 ms
+        # Calcule une nouvelle frame dans 100 ms (vitesse = latence avant éxécution donc plus c'est petit plus c'est rapide)
         tk.after(vitesse, lambda:computeNextFrame(numFrame,coordonnee, objet , objet_2, objet_3))
     
     
